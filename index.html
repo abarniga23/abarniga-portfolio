@@ -209,7 +209,7 @@
 
   /* ─── ABOUT ─── */
   #about { background: var(--bg2); border-top: 1px solid var(--border-soft); }
-  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start; }
+  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; }
   .about-left p { color: var(--text-soft); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.4rem; }
   .about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .detail-card { background: var(--surface); border: 1px solid var(--border-soft); padding: 1.1rem 1.3rem; transition: border-color 0.3s; min-width: 0; }
@@ -227,6 +227,9 @@
 
   .langs-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.4rem; }
   .lang-item { margin-bottom: 1.2rem; }
+  .langs-row { margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border-soft); }
+  .langs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; }
+  .langs-grid .lang-item { margin-bottom: 0; }
   .lang-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem; }
   .lang-name { font-size: 0.9rem; color: var(--text-soft); }
   .lang-level { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; }
@@ -276,14 +279,14 @@
   .project-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; flex: 1; }
   .project-techs { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.4rem; }
   .project-tech { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.05em; color: var(--gold); background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.2); padding: 0.25rem 0.65rem; }
-  .project-links { display: flex; gap: 1.2rem; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border-soft); position: relative; z-index: 1; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border-soft); position: relative; z-index: 1; }
   .project-link { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-soft); text-decoration: none; transition: color 0.3s; }
   .project-link:hover { color: var(--gold2); }
   .project-link::after { content: ' ↗'; color: var(--gold); }
 
   /* ─── SKILLS ─── */
   #skills { background: var(--bg); }
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; }
   .skill-category { background: var(--bg2); border: 1px solid var(--border-soft); padding: 2rem; transition: border-color 0.4s, background 0.4s; position: relative; overflow: hidden; }
   .skill-category::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.5s; }
   .skill-category:hover { border-color: var(--border); background: var(--surface); }
@@ -364,7 +367,7 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1000px) {
-    .process-grid { grid-template-columns: 1fr 1fr; }
+    .process-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 900px) {
     nav { padding: 0 1.25rem; }
@@ -392,7 +395,8 @@
   }
   @media (max-width: 600px) {
     section { padding: 3.5rem 1.25rem; }
-    .about-details, .process-grid { grid-template-columns: 1fr; }
+    .about-details, .process-grid, .skills-grid { grid-template-columns: 1fr; }
+    .langs-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-card { padding: 1.7rem; }
     .cert-item { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 1.2rem 1.4rem; }
@@ -484,7 +488,11 @@
         <div class="value"><span class="value-num">03</span><span class="value-name">Responsibility</span><span class="value-desc">Taking ownership of my work and decisions.</span></div>
         <div class="value"><span class="value-num">04</span><span class="value-name">Collaboration</span><span class="value-desc">Working with others, sharing ideas and achieving goals together.</span></div>
       </div>
-      <div class="langs-title" id="langs">Languages</div>
+    </div>
+  </div>
+  <div class="langs-row reveal">
+    <div class="langs-title" id="langs">Languages</div>
+    <div class="langs-grid">
       <div class="lang-item"><div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Fluent</span></div><div class="lang-bar"><div class="lang-fill" style="--w:90%"></div></div></div>
       <div class="lang-item"><div class="lang-row"><span class="lang-name">Tamil</span><span class="lang-level">Native</span></div><div class="lang-bar"><div class="lang-fill" style="--w:100%"></div></div></div>
       <div class="lang-item"><div class="lang-row"><span class="lang-name">Sinhala</span><span class="lang-level">Conversational</span></div><div class="lang-bar"><div class="lang-fill" style="--w:55%"></div></div></div>
@@ -534,7 +542,7 @@
       <div class="project-meta">2026 · Team · Patient app developer</div>
       <p class="project-desc">A concept for a chest-worn device that tracks breathing, vital signs and air quality to warn of asthma risk early. I built the patient app: sign-in, patient profiles, medication records, health history reports and charts.</p>
       <div class="project-techs"><span class="project-tech">React</span><span class="project-tech">Firebase</span><span class="project-tech">Cloud Firestore</span><span class="project-tech">Recharts</span></div>
-      <div class="project-links"><a class="project-link" href="https://github.com/bronchflow-team/BronchFlow-Patient-App" target="_blank" rel="noopener">App code</a><a class="project-link" href="https://github.com/bronchflow-team/BronchFlow-Website" target="_blank" rel="noopener">Website code</a></div>
+      <div class="project-links"><a class="project-link" href="https://github.com/bronchflow-team/BronchFlow-Patient-App" target="_blank" rel="noopener">App</a><a class="project-link" href="https://github.com/bronchflow-team/BronchFlow-Doctor-Dashboard" target="_blank" rel="noopener">Dashboard</a><a class="project-link" href="https://github.com/bronchflow-team/BronchFlow-Website" target="_blank" rel="noopener">Website</a></div>
     </article>
 
     <article class="project-card featured reveal" data-cat="web design">
@@ -604,6 +612,7 @@
       <div class="project-meta">2025</div>
       <p class="project-desc">A memory-storing mobile app that lets users save and revisit their memories. Designed the wireframes and a clickable prototype in Figma.</p>
       <div class="project-techs"><span class="project-tech">Figma</span><span class="project-tech">Prototyping</span><span class="project-tech">Mobile UI</span></div>
+      <div class="project-links"><a class="project-link" href="https://www.figma.com/design/Jg4gBmrw6OoyLLjy8KpWmS/Untitled?node-id=0-1&amp;t=eZQcKogwGysAUKyB-1" target="_blank" rel="noopener">Figma</a></div>
     </article>
 
   </div>
